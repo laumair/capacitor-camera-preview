@@ -641,7 +641,7 @@ public class CameraActivity extends Fragment {
           params.setRotation(mPreview.getDisplayOrientation());
 
           mCamera.setParameters(params);
-          mCamera.takePicture(shutterCallback, null, jpegPictureCallback);
+          mCamera.takePicture(null, null, jpegPictureCallback);
         }
       }.start();
     } else {
