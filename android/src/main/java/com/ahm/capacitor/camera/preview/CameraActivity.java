@@ -26,6 +26,9 @@ import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
+import android.media.AudioManager;
+import android.content.Context;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -641,6 +644,10 @@ public class CameraActivity extends Fragment {
           params.setRotation(mPreview.getDisplayOrientation());
 
           mCamera.setParameters(params);
+
+          AudioManager mgr = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+          mgr.setStreamMute(AudioManager.STREAM_SYSTEM, true);
+
           mCamera.takePicture(null, null, jpegPictureCallback);
         }
       }.start();
