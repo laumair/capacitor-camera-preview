@@ -641,6 +641,14 @@ public class CameraActivity extends Fragment {
           params.setRotation(mPreview.getDisplayOrientation());
 
           mCamera.setParameters(params);
+
+          Camera.CameraInfo info = new Camera.CameraInfo();
+          Camera.getCameraInfo(defaultCameraId, info);
+
+          if (info.canDisableShutterSound) {
+            mCamera.enableShutterSound(false);
+          }
+
           mCamera.takePicture(null, null, jpegPictureCallback);
         }
       }.start();
