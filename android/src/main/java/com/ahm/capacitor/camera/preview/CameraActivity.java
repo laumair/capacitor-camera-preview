@@ -645,7 +645,7 @@ public class CameraActivity extends Fragment {
 
           mCamera.setParameters(params);
 
-          AudioManager mgr = (AudioManager)Context.getSystemService(Context.AUDIO_SERVICE);
+          AudioManager mgr = (AudioManager)getActivity().getSystemService(Context.AUDIO_SERVICE);
           mgr.setStreamMute(AudioManager.STREAM_SYSTEM, true);
 
           mCamera.takePicture(null, null, jpegPictureCallback);
